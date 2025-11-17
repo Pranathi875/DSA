@@ -1,0 +1,14 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int mat[][]={{1,2,3},{2,2,4},{3,6,9}};
+        int r=mat[0].length;
+        int i=0;
+        int j=r-1;
+        while(i<r&&j>=0){
+            System.out.println(mat[i][j]);
+            i++;
+            j--;
+        }
+    }
+}
