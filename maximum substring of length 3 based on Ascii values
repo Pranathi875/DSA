@@ -1,0 +1,17 @@
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       
+       String s="animuthyam";
+       int maxSum=0;
+       for(int i=0;i<s.length()-2;i++){
+           int j=i+2;
+           int sum=s.charAt(i)+s.charAt(i+1)+s.charAt(j);
+           maxSum=Math.max(sum,maxSum);
+       }
+       System.out.println(maxSum);
+        
+            
+    }
+}
