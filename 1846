@@ -1,0 +1,19 @@
+class Solution {
+    public int countGoodSubstrings(String s) {
+        int count=0;
+        for(int i=0;i<s.length()-2;i++){
+            int j=i+2;
+            HashSet<Character>set=new HashSet<>();
+            boolean flag=true;
+            for(int k=i;k<=j;k++){
+                if(set.contains(s.charAt(k))){
+                   flag=false;
+                   break;}
+                set.add(s.charAt(k));
+            }
+            if(flag==true)
+              count++;
+        }
+        return count;
+    }
+}
