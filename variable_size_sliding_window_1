@@ -1,0 +1,19 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int arr[]={1,5,3,1,9};
+        int l=0;
+        int totalSum=0;
+        int maxAccom=10;
+        int max=0;
+        for(int r=0;r<arr.length;r++){
+            totalSum+=arr[r];
+            while(totalSum>maxAccom){
+                totalSum-=arr[l];
+                l++;
+            }
+            max=Math.max(max,r-l+1);
+        }
+        System.out.println(max);
+    }
+}
