@@ -1,0 +1,21 @@
+//maximum length of subarray having atmost k ones
+class Main {
+    public static void main(String[] args) {
+        int arr[]={1,0,5,6,1,5,6,1,8,1};
+        int l=0,count=0,max=0;
+        int k=2;
+        for(int r=0;r<arr.length;r++){
+            if(arr[r]==1){
+                count++;
+            }
+            while(count>k){
+                if(arr[r]==1){
+                    count--;
+                    l++;
+                }
+            }
+            max=Math.max(max,r-l+1);
+        }
+        System.out.println(max);
+    }
+}
