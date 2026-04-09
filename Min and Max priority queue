@@ -1,0 +1,30 @@
+//min Priority queue
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        PriorityQueue<Integer>pq=new PriorityQueue<>();
+        pq.add(15);
+        pq.add(2);
+        pq.add(7);
+        System.out.println(pq.peek());
+        System.out.println(pq.poll());
+        pq.add(6);
+        System.out.println(pq);
+        
+    }
+}
+//max priority queue
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        PriorityQueue<Integer>pq=new PriorityQueue<>(Collections.reverseOrder());
+        pq.add(15);
+        pq.add(2);
+        pq.add(7);
+        System.out.println(pq.peek());
+        System.out.println(pq.poll());
+        pq.add(6);
+        System.out.println(pq);
+        
+    }
+}
