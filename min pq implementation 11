@@ -1,0 +1,39 @@
+import java.util.*;
+class Student{
+    String name;
+    int age;
+    int height;
+    Student(String name,int age,int height){
+        this.name=name;
+        this.age=age;
+        this.height=height;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+       // System.out.println("Try programiz.pro");
+       PriorityQueue<Student>pq=new PriorityQueue<>
+       
+       ((a,b)->{if(a.age==b.age){
+           return a.height-b.height;
+       }
+       else{
+           return a.age-b.age;
+       }});
+       
+       Student s1=new Student("Fizz",18,160);
+       Student s2=new Student("Buzz",16,141);
+       Student s3=new Student("Trizz",16,140);
+       Student s4=new Student("Drizz",19,161);
+       pq.add(s1);
+       pq.add(s2);
+       pq.add(s3);
+       pq.add(s4);
+       Student temp=pq.poll();
+       System.out.println(temp.name+" "+temp.age+" "+temp.height);
+       System.out.println("Final Deque: ");
+       for(Student s:pq){
+       System.out.println(s.name+" "+s.age+" "+s.height);}
+    }
+}
