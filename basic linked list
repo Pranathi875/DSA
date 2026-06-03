@@ -1,0 +1,31 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static void main(String[] args) {
+        Node node1=new Node("A");
+        Node node2=new Node("B");
+        Node node3=new Node("C");
+        Node node4=new Node("D");
+        node1.next=node2;
+        node2.next=node3;
+        node3.next=node4;
+        Node head=node1;
+        Node temp=head;
+        while(temp!=null){
+            func(temp);
+            temp=temp.next;
+        }
+    }
+    public static void func(Node node){
+    System.out.println(node.data+" "+node.next);
+}
+}
+class Node{
+    Node next;
+    String data;
+    Node(String data){
+        this.data=data;
+        this.next=null;
+    }
+}
