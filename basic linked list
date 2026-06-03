@@ -1,6 +1,15 @@
 // Online Java Compiler
-// Use this editor to write, compile and run your Java code online
-
+// Use this editor to write, compile and run your Java code online'
+import java.util.*;
+class Node{
+    String data;
+    Node next;
+    Node(String data){
+        this.data=data;
+        this.next=null;
+    }
+    
+}
 class Main {
     public static void main(String[] args) {
         Node node1=new Node("A");
@@ -11,21 +20,30 @@ class Main {
         node2.next=node3;
         node3.next=node4;
         Node head=node1;
+        display(head);
+        Scanner sc=new Scanner(System.in);
+        String key=sc.next();
+        searchKey(head,key);
+        
+    }
+    public static void display(Node head){
         Node temp=head;
         while(temp!=null){
-            func(temp);
+            System.out.println(temp.data+" "+temp.next);
             temp=temp.next;
         }
     }
-    public static void func(Node node){
-    System.out.println(node.data+" "+node.next);
-}
-}
-class Node{
-    Node next;
-    String data;
-    Node(String data){
-        this.data=data;
-        this.next=null;
+    public static void searchKey(Node head,String key){
+        int count=0;
+        Node temp=head;
+        while(temp!=null){
+            if(temp.data.equals(key)){
+                System.out.println(count);
+                return;
+            }
+            temp=temp.next;
+            count++;
+        }
+        System.out.println(-1);
     }
 }
