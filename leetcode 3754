@@ -1,0 +1,28 @@
+class Solution {
+    public long sumAndMultiply(int n) {
+        StringBuilder sb=new StringBuilder();
+        if(n==0){
+            return 0;
+        }
+        int temp=n;
+        int count=0;
+        long  sum=0;
+        while(temp>0){   
+            int rem=temp%10;
+            if(rem!=0){
+                sb.append(rem);
+                sum+=rem;
+            }    
+            temp/=10;
+            count++;
+            
+        }
+        sb=sb.reverse();
+        String str=sb.toString();
+         int num=Integer.parseInt(str);
+        return (int)num*sum;
+
+        
+
+    }
+}
