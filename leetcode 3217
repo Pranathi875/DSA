@@ -1,0 +1,33 @@
+
+class Solution {
+    public ListNode modifiedList(int[] nums, ListNode head) {
+        if(head==null){
+            return null;
+        }
+        
+        HashMap<Integer,Integer>hm=new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            int key=nums[i];
+            hm.put(key,hm.getOrDefault(key,0)+1);
+        }
+        while(head!=null&&hm.containsKey(head.val)){
+           head=head.next;
+        }
+        if(head==null){
+            return null;
+        }
+        ListNode temp=head;
+        while(temp.next!=null){
+            while(temp.next!=null&&hm.containsKey(temp.next.val)){
+                temp.next=temp.next.next;
+                
+            }
+            if(temp.next!=null){
+            temp=temp.next;}
+        }
+        return head;
+
+
+
+    }
+}
