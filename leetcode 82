@@ -1,0 +1,40 @@
+
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+      HashMap<Integer,Integer>hm=new HashMap<>();
+      ListNode temp=head;
+      if(head==null){
+        return null;
+      }
+      while(temp!=null){
+        int key=temp.val;
+        hm.put(key,hm.getOrDefault(key,0)+1);
+        temp=temp.next;
+      }
+    
+       while((head!=null)&&(hm.get(head.val)>1)){
+         head=head.next;
+       }
+       if(head==null){
+        return null;
+       }
+      temp=head;
+      while(temp.next!=null){
+           
+          
+          while((temp.next!=null)&&(hm.get(temp.next.val)>1)){
+              temp.next=temp.next.next;
+          }
+          if(temp.next!=null){
+              temp=temp.next;
+          }
+      }
+
+
+     return head;
+
+
+
+
+    }
+}
