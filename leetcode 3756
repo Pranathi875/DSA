@@ -1,0 +1,49 @@
+class Solution {
+    public int[] sumAndMultiply(String s, int[][] queries) {
+        int n = s.length();
+        long MOD = 1000000007L;
+
+        int[] prefixSum = new int[n + 1];
+        int[] newSum = new int[n + 1];
+        int[] nonZeroCount = new int[n + 1];
+        int[] pow10 = new int[n + 1];
+
+        pow10[0] = 1;
+        for (int i = 1; i <= n; i++) {
+            pow10[i] = (int)((pow10[i - 1] * 10L) % MOD);
+        }
+
+        for (int i = 0; i < n; i++) {
+            int digit = s.charAt(i) - '0';
+
+            prefixSum[i + 1] = prefixSum[i] + digit;
+
+            if (digit != 0) {
+                newSum[i + 1] = (int)((newSum[i] * 10L + digit) % MOD);
+                nonZeroCount[i + 1] = nonZeroCount[i] + 1;
+            } else {
+                newSum[i + 1] = newSum[i];
+                nonZeroCount[i + 1] = nonZeroCount[i];
+            }
+        }
+
+        int[] ans = new int[queries.length];
+
+        for (int i = 0; i < queries.length; i++) {
+            int l = queries[i][0];
+            int r = queries[i][1];
+
+            long sum = prefixSum[r + 1] - prefixSum[l];
+
+            int cnt = nonZeroCount[r + 1] - nonZeroCount[l];
+
+            long num = (newSum[r + 1]
+                    - (newSum[l] * 1L * pow10[cnt]) % MOD
+                    + MOD) % MOD;
+
+            ans[i] = (int)((sum * num) % MOD);
+        }
+
+        return ans;
+    }
+}
