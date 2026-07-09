@@ -1,0 +1,23 @@
+class Solution {
+    public List<Integer> selfDividingNumbers(int left, int right) {
+       ArrayList<Integer>ls=new ArrayList<>();
+       for(int i=left;i<=right;i++){
+         String str=String.valueOf(i);
+         boolean flag=true;
+         for(int j=0;j<str.length();j++){
+             int k=str.charAt(j)-'0';
+             if(k==0||i%k!=0){
+                flag=false;
+                break;
+             }
+
+         }
+         if(flag==true){
+            ls.add(i);
+         }
+       }
+
+ return ls;
+
+    }
+}
