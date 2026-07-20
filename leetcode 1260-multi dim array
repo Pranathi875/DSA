@@ -1,0 +1,41 @@
+class Solution {
+    public List<List<Integer>> shiftGrid(int[][] grid, int k) {
+
+        int m = grid.length;
+        int n = grid[0].length;
+
+        for (int x = 0; x < k; x++) {
+
+            int[][] arr = new int[m][n];
+
+           
+            arr[0][0] = grid[m - 1][n - 1];
+
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+
+                    if (j != n - 1) {
+                        arr[i][j + 1] = grid[i][j];
+                    } else if (i != m - 1) {
+                        arr[i + 1][0] = grid[i][j];
+                    }
+                }
+            }
+
+          
+            grid = arr;
+        }
+
+        List<List<Integer>> list = new ArrayList<>();
+
+        for (int[] row : grid) {
+            List<Integer> temp = new ArrayList<>();
+            for (int num : row) {
+                temp.add(num);
+            }
+            list.add(temp);
+        }
+
+        return list;
+    }
+}
