@@ -1,0 +1,32 @@
+class Solution {
+    public int countPrimeSetBits(int left, int right) {
+       int primeSetBits=0;
+        for(int i=left;i<=right;i++){
+            String binStr=Integer.toBinaryString(i);
+            boolean res=func(binStr);
+            if(res==true){
+                primeSetBits++;
+            }
+        }
+        return primeSetBits;
+
+    }
+    public boolean func(String binStr){
+        int count=0;
+        for(int i=0;i<binStr.length();i++){
+            if(binStr.charAt(i)=='1'){
+                count++;
+            }
+        }
+        int cnt=0;
+        for(int i=1;i<=count;i++){
+            if(count%i==0){
+                cnt++;
+            }
+        }
+        if(cnt==2){
+            return true;
+        }
+        return false;
+    }
+}
