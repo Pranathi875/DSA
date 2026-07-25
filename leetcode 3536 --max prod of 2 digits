@@ -1,0 +1,11 @@
+class Solution {
+    public int maxProduct(int n) {
+       String str=String.valueOf(n);
+       char arr[]=str.toCharArray();
+       Arrays.sort(arr);
+       if(arr.length<2){
+          return arr[0]-'0';
+       }
+       return (arr[arr.length-1]-'0')*(arr[arr.length-2]-'0');
+    }
+}
