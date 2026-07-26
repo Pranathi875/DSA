@@ -1,0 +1,25 @@
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        int n=str.length();
+        boolean res=isPalindrome(0,str,n);
+        if(res){
+            System.out.println("Palindrome");
+        }
+        else{
+            System.out.println("Not a palindrome");
+        }
+    }
+    public static boolean isPalindrome(int i,String str,int n){
+        if(i>=n/2){
+            return true;
+        }
+        if(str.charAt(i)!=str.charAt(n-i-1)){
+            return false;
+        }
+        return isPalindrome(++i,str,n);
+    }
+}
