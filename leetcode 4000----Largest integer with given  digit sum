@@ -1,0 +1,25 @@
+class Solution {
+    public int largestInteger(int n, int s) {
+      if(s==0){
+          return 0;
+      }
+        int val=-1;
+      for(int i=(int)Math.pow(10,n-1);i<=((int)Math.pow(10,n)-1);i++){
+          int res=sumFunc(i);
+          if(res==s){
+             val=i;
+          }
+      }
+        return val;
+    }
+    public static int sumFunc(int num){
+        int sum=0;
+        int temp=num;
+        while(temp!=0){
+            int rem=temp%10;
+            sum+=rem;
+            temp/=10;
+        }
+        return sum;
+    }
+}
