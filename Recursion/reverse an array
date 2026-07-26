@@ -1,0 +1,23 @@
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       int arr[]={1,2,3,4,5};
+       int n=arr.length;
+       arr=reverseFunc(0,arr,n);
+       System.out.println(Arrays.toString(arr));
+    }
+    public static int[] reverseFunc(int i,int []arr,int n){
+        if(i>=n/2){
+            return arr;
+        }
+        swap(arr,i,n-i-1);
+        return reverseFunc(++i,arr,n);
+    }
+    public static void swap(int arr[],int left,int right){
+        int temp=arr[left];
+         arr[left]=arr[right];
+        arr[right]=temp;
+        
+    }
+}
