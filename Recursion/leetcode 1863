@@ -1,0 +1,20 @@
+class Solution {
+    public int subsetXORSum(int[] nums) {
+     int ans=xorSum(0,nums,0);
+     return ans;
+
+
+
+
+    }
+    public static int xorSum(int idx,int []nums,int xor){
+        if(idx==nums.length){
+            return xor;
+        }
+       
+       int take= xorSum(idx+1,nums,xor^nums[idx]);
+       int notTake= xorSum(idx+1,nums,xor);
+        return take+notTake;
+
+    }
+}
