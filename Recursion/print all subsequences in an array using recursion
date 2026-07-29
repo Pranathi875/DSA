@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+       int arr[]={3,1,2};
+       printSubSeq(0,arr,new ArrayList<>());
+
+    }
+    public static void printSubSeq(int idx,int arr[],List<Integer>ls){
+      if(idx==arr.length){
+        System.out.println(ls);
+        return;
+      }
+      ls.add(arr[idx]);
+      printSubSeq(idx+1,arr,ls);
+      ls.remove(ls.size()-1);
+      printSubSeq(idx+1,arr,ls);
+    }
+}
