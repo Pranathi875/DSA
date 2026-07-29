@@ -1,0 +1,18 @@
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>>ans=new ArrayList<>();
+        ans= allSubSeq(0,nums,new ArrayList<>(),ans);
+        return ans;
+    }
+    public static List<List<Integer>>allSubSeq(int idx,int []nums,List<Integer>ls,List<List<Integer>>ans){
+        if(idx==nums.length){
+           ans.add(new ArrayList<>(ls));
+            return ans;
+        }
+        ls.add(nums[idx]);
+        allSubSeq(idx+1,nums,ls,ans);
+        ls.remove(ls.size()-1);
+        allSubSeq(idx+1,nums,ls,ans);
+        return ans;
+    }
+}
