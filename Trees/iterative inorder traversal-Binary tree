@@ -1,0 +1,52 @@
+import java.util.*;
+class TreeNode{
+    TreeNode root;
+    TreeNode left;
+    TreeNode right;
+    int val;
+    TreeNode(int val){
+       this.val=val;
+       this.root=null;
+       this.left=null;
+       this.right=null;
+    }
+}
+
+
+public class inorder_iterative_traversal {
+    public static void main(String []args){
+        List<Integer>ls=new ArrayList<>();
+        TreeNode root=new TreeNode(1);
+        root.left=new TreeNode(2);
+        root.right=new TreeNode(3);
+        root.left.left=new TreeNode(4);
+        root.left.right=new TreeNode(5);
+        root.left.right.left=new TreeNode(6);
+        root.left.right.right=new TreeNode(7);
+        ls=inorder_Traversal(root);
+        System.out.println(ls);
+    }
+    public static List<Integer>inorder_Traversal(TreeNode root){
+        List<Integer>inorder=new ArrayList<>();
+        if(root==null){
+            return inorder;
+        }
+        Stack<TreeNode>st=new Stack<>();
+        TreeNode node=root;
+        while(true){
+            if(node!=null){
+                st.push(node);
+                node=node.left;
+            }
+            else{
+                if(st.isEmpty()){
+                    break;
+                }
+                node=st.pop();
+                inorder.add(node.val);
+                node=node.right;
+            }
+        }
+        return inorder;
+    }
+}
