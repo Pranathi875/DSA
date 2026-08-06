@@ -1,0 +1,23 @@
+class Solution {
+    public int smallestNumber(int n, int t) {
+     for(int i=n;i<=100;i++){
+       int digitProd=func(i);
+       if(digitProd%t==0){
+        return i;
+       }
+     }
+     return 0;
+
+
+    }
+    public static int func(int i){
+        int temp=i;
+        int prod=1;
+        while(temp!=0){
+          int rem=temp%10;
+          prod*=rem;
+          temp/=10;
+        }
+        return prod;
+    }
+}
