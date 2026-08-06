@@ -1,0 +1,35 @@
+class Solution {
+    public boolean checkInclusion(String s1, String s2) {
+       int k=s1.length();
+       int l=0;
+       char arr1[]=s1.toCharArray();
+       Arrays.sort(arr1);
+       StringBuilder sb=new StringBuilder();
+       for(int r=0;r<s2.length();r++){
+          sb.append(s2.charAt(r));
+          if(r-l+1==k){
+            String str2=s2.substring(l,r+1);
+            char arr2[]=str2.toCharArray();
+            Arrays.sort(arr2);
+            if(func(arr1,arr2)){
+                return true;
+            }
+            int idx = sb.indexOf(String.valueOf(s2.charAt(l)));
+             if (idx != -1) {
+             sb.deleteCharAt(idx);
+                }
+            l++;
+           
+          }
+       }
+       return false;
+    }
+    public static boolean func(char []arr1,char []arr2){
+        for(int i=0;i<arr1.length;i++){
+            if(arr2[i]!=arr1[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+}
