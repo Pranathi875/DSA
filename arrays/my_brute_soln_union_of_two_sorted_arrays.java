@@ -11,10 +11,12 @@ class Main {
         for(int i=0;i<arr2.length;i++){
             hs.add(arr2[i]);
         }
+        int ans[]=new int[hs.size()];
+        int j=0;
         for(int nums:hs){
-            ls.add(nums);
+            ans[j]=nums;
+            j++;
         }
-        int[] ans = ls.stream().mapToInt(Integer::intValue).toArray();
         Arrays.sort(ans);
         for(int i=0;i<ans.length;i++){
             System.out.println(ans[i]);
